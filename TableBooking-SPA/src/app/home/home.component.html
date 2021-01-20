@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div *ngIf="!registerMode" style="text-align: center">
+    <h1>Book your Table</h1>
+    <p class="lead">Come on in to view your Food... All you need to do is Book!</p>
+    <div class="text-center">
+      <button [disabled]="loggedIn()" class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">Register</button>
+      <a class="btn btn-info btn-lg" [routerLink]="['/lists']">Search Table</a>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
+  </div>
+</div>

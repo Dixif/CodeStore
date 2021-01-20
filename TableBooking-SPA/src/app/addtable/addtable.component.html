@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">Add Flight</div>
+      <div class="card-body">
+        <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <label for="no" class="form-label">Table Number</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tableNumber"
+              [ngClass]="{'is-invalid': registerationForm.get('tableNumber').touched}"
+            />
+            <div *ngIf="registerationForm.get('tableNumber').hasError('required') 
+            && registerationForm.get('tableNumber').touched" class="invalid-feedback">Please provide flight No</div>
+            <div class="invalid-feedback" *ngIf="registerationForm.get('tableNumber').hasError('pattern') 
+            && registerationForm.get('tableNumber').touched">Enter only number.</div>
+          </div>
+          <div class="form-group col-12">
+            <label for="name" class="form-label">RestaurantName</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="restaurantName"
+              [ngClass]="{'is-invalid': registerationForm.get('restaurantName').touched}"
+            />
+            <div *ngIf="registerationForm.get('restaurantName').hasError('required') 
+            && registerationForm.get('restaurantName').touched"  class="invalid-feedback">Please provide flight Company Name</div>
+          </div>
+          <div class="form-group col-12">
+            <label for="seat" class="form-label">Seats</label>
+            <input type="text" class="form-control" formControlName="seats" [ngClass]="{'is-invalid': registerationForm.get('seats').touched}" />
+            <div *ngIf="registerationForm.get('seats').hasError('required') 
+            && registerationForm.get('seats').touched"  class="invalid-feedback"> Please provide Seats</div>
+            <div class="invalid-feedback" *ngIf="registerationForm.get('seats').hasError('pattern') 
+            && registerationForm.get('seats').touched">Enter only number.</div>
+          </div>
+          <div class="form-group col-12">
+            <button type="submit" [disabled]="!registerationForm.valid" class="btn btn-primary">Save</button>
+            <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-secondary ml-2"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

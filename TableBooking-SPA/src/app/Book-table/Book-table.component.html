@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">Book Flight</div>
+      <div class="card-body">
+        <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <label for="no" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              [ngClass]="{'is-invalid': registerationForm.get('name').touched}"
+            />
+            <div *ngIf="registerationForm.get('name').hasError('required') 
+            && registerationForm.get('name').touched" class="invalid-feedback">Please provide Name</div>
+          </div>
+          <div class="form-group col-12">
+            <label for="mob" class="form-label">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="mobile"
+              [ngClass]="{'is-invalid': registerationForm.get('mobile').touched}"
+            />
+            <div *ngIf="registerationForm.get('mobile').hasError('required') 
+            && registerationForm.get('mobile').touched" class="invalid-feedback">Please provide Mobile</div>
+          </div>
+          <div class="form-group col-12">
+            <label for="sea" class="form-label">Seats</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="seats"
+              [ngClass]="{'is-invalid': registerationForm.get('seats').touched}"
+            />
+            <div *ngIf="registerationForm.get('seats').hasError('required') 
+            && registerationForm.get('mobile').touched" class="invalid-feedback">Please provide Seats</div>
+            <div class="invalid-feedback" *ngIf="registerationForm.get('seats').hasError('pattern') 
+            && registerationForm.get('seats').touched">Enter only number.</div>
+          </div>
+          <div class="form-group col-12">
+            <label for="no" class="form-label">From</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="from"
+              [ngClass]="{'is-invalid': registerationForm.get('from').touched}"
+            />
+            <div *ngIf="registerationForm.get('from').hasError('required') 
+            && registerationForm.get('from').touched" class="invalid-feedback">Please provide from time</div>
+          </div>
+          <div class="form-group col-12">
+            <label for="no" class="form-label">To</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="to"
+              [ngClass]="{'is-invalid': registerationForm.get('to').touched}"
+            />
+            <div *ngIf="registerationForm.get('to').hasError('required') 
+            && registerationForm.get('to').touched" class="invalid-feedback">Please provide to time</div>
+          </div>
+         
+          <div class="form-group col-12">
+            <button type="submit" [disabled]="!registerationForm.valid" class="btn btn-primary">Save</button>
+            <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-secondary ml-2"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

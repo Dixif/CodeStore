@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">TableNumber</th>
+        <th scope="col">RestaurantName</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Seats</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of tables">
+        <td>{{table.tableNumber}}</td>
+        <td>{{table.restaurantName}}</td>
+        <td>{{table.name}}</td>
+        <td>{{table.mobile}}</td>
+        <td>{{table.from}}</td>
+        <td>{{table.to}}</td>
+        <td>{{table.seats}}</td>
+        <td> <button  type="button" class="btn btn-info" [disabled] >Booked</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
